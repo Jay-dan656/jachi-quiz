@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111a35">
+  <meta name="description" content="Explore Scripture, take a Bible quiz, and grow your knowledge of God's Word.">
+  <title>Wordwise — Christian Bible Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/review.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#" data-page="dashboard" aria-label="Wordwise home">
+        <span class="brand-mark">✦</span><span class="brand-copy"><strong>wordwise</strong><small>BIBLE QUIZ</small></span>
+      </a>
+      <div class="side-label">MENU</div>
+      <nav class="side-nav">
+        <button class="nav-link active" data-page="dashboard"><span>⌂</span>Dashboard</button>
+        <button class="nav-link nav-quiz" data-action="configure"><span>◉</span>Start Quiz</button>
+        <div class="side-label section-label">EXPLORE SCRIPTURE</div>
+        <button class="nav-link" data-testament="Old Testament"><span>▤</span>Old Testament</button>
+        <button class="nav-link" data-testament="New Testament"><span>✝</span>New Testament</button>
+        <button class="nav-link" data-category="Bible Characters"><span>♙</span>Bible Characters</button>
+        <button class="nav-link" data-category="Bible History"><span>◷</span>Bible History</button>
+        <button class="nav-link" data-category="Biblical Events"><span>✧</span>Bible Events</button>
+        <button class="nav-link" data-page="books"><span>▧</span>Bible Books</button>
+        <button class="nav-link" data-page="categories"><span>⊞</span>Quiz Categories</button>
+        <div class="side-label section-label">YOUR JOURNEY</div>
+        <button class="nav-link" data-page="history"><span>▥</span>My Results</button>
+        <button class="nav-link" data-page="history"><span>◴</span>Performance History</button>
+        <button class="nav-link" data-page="leaderboard"><span>♕</span>Leaderboard</button>
+        <button class="nav-link admin-link" data-page="admin" hidden><span>⚙</span>Admin dashboard</button>
+        <button class="nav-link" data-page="about"><span>ⓘ</span>About</button>
+        <button class="nav-link" data-page="settings"><span>⚙</span>Settings</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="verse-card"><span class="verse-mark">“</span><p>Your word is a lamp for my feet, a light on my path.</p><small>PSALM 119:105</small></div>
+        <button class="user-mini" id="account-button"><span class="avatar">G</span><span><strong id="user-name">Guest learner</strong><small id="user-label">Create an account</small></span><span class="dots">···</span></button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" aria-label="Open navigation">☰</button>
+        <div class="welcome"><span id="greeting">Good morning</span><strong id="welcome-name">Welcome back, friend 👋</strong></div>
+        <label class="search-wrap"><span>⌕</span><input id="search-input" type="search" placeholder="Search questions, books..." aria-label="Search"><kbd>⌘ K</kbd></label>
+        <button class="icon-button notification-button" aria-label="Notifications">♧<i></i></button>
+        <button class="top-avatar" id="top-account" aria-label="Account">G</button>
+        <button class="button button-outline top-login" id="auth-button">Login / Register</button>
+        <button class="button button-gold top-start" data-action="configure">Start Quiz <span>→</span></button>
+      </header>
+
+      <div class="content" id="content">
+        <section class="page active" id="page-dashboard">
+          <div class="hero">
+            <div class="hero-content">
+              <div class="eyebrow"><span></span> YOUR DAILY MOMENT IN THE WORD</div>
+              <h1>Test your knowledge<br>of <em>God’s Word.</em></h1>
+              <p>Explore the Holy Bible from Genesis to Revelation. Learn, test your knowledge, and grow in your understanding of Scripture.</p>
+              <div class="hero-actions"><button class="button button-gold button-large" data-action="configure">Start a Quiz <span>→</span></button><button class="button button-glass button-large" data-page="books">Explore the Bible</button></div>
+              <div class="hero-proof"><span class="proof-avatars"><i>J</i><i>M</i><i>A</i><i>+</i></span><span>Join <strong>2,400+</strong> learners growing in the Word</span></div>
+            </div>
+            <div class="hero-art" aria-hidden="true"><div class="halo"></div><div class="cross">✝</div><div class="book"><div class="book-page"></div><div class="book-lines">✦<br>✦<br>✦</div></div><div class="floating-verse"><span>✦</span><p>“In the beginning<br>was the Word...”</p><small>JOHN 1:1</small></div><div class="sparkle sparkle-one">✦</div><div class="sparkle sparkle-two">✧</div></div>
+            <div class="hero-pagination"><i class="selected"></i><i></i><i></i></div>
+          </div>
+
+          <div class="stat-row">
+            <article class="stat-card"><span class="stat-icon purple">▤</span><div><strong>66</strong><small>Bible Books</small></div><span class="stat-caption">39 Old · 27 New</span></article>
+            <article class="stat-card"><span class="stat-icon gold">◎</span><div><strong id="stat-questions">120+</strong><small>Quiz Questions</small></div><span class="stat-caption">Growing daily</span></article>
+            <article class="stat-card"><span class="stat-icon green">♙</span><div><strong>2.4k</strong><small>Active Learners</small></div><span class="stat-caption">Learning together</span></article>
+            <article class="stat-card"><span class="stat-icon blue">♕</span><div><strong id="stat-quizzes">0</strong><small>Your Quizzes</small></div><span class="stat-caption">Keep your streak</span></article>
+          </div>
+
+          <div class="section-heading"><div><span class="eyebrow dark-eyebrow">A LITTLE WISDOM FOR TODAY</span><h2>Daily Bible question</h2></div><button class="text-button" data-action="daily">Answer question <span>→</span></button></div>
+          <article class="daily-card"><span class="daily-icon">✦</span><div class="daily-copy"><span class="tag">QUESTION OF THE DAY</span><h3 id="daily-question">Who was the first person to build an altar to the Lord after the flood?</h3><span class="scripture">Genesis 8:20</span></div><button class="button button-dark" data-action="daily">Take the challenge <span>→</span></button></article>
+
+          <div class="section-heading category-heading"><div><span class="eyebrow dark-eyebrow">FIND YOUR NEXT CHALLENGE</span><h2>Featured categories</h2></div><button class="text-button" data-page="categories">View all categories <span>→</span></button></div>
+          <div class="category-grid" id="featured-categories"></div>
+          <div class="bottom-grid">
+            <section class="panel recent-panel"><div class="panel-heading"><div><span class="eyebrow dark-eyebrow">FRESH FROM THE WORD</span><h2>Recently added questions</h2></div><button class="icon-button subtle" aria-label="More">···</button></div><div id="recent-list"></div></section>
+            <section class="panel leaderboard-mini"><div class="panel-heading"><div><span class="eyebrow dark-eyebrow">GROWING TOGETHER</span><h2>Top learners</h2></div><button class="text-button" data-page="leaderboard">See all <span>→</span></button></div><div id="leaderboard-mini"></div></section>
+          </div>
+          <footer class="footer">Made for curious hearts and growing faith <span>✦</span></footer>
+        </section>
+
+        <section class="page" id="page-quiz">
+          <div class="quiz-topline"><button class="back-button" data-page="dashboard">← Dashboard</button><span class="quiz-mode-label">BIBLE KNOWLEDGE EXAMINATION</span><span id="timer" class="timer">◷ 05:00</span></div>
+          <div class="quiz-layout"><section class="quiz-main">
+            <div class="quiz-heading"><span class="tag" id="quiz-category-tag">OLD TESTAMENT</span><h1 id="quiz-title">Genesis</h1><p id="quiz-subtitle">A journey through the book of beginnings</p></div>
+            <div class="quiz-progress-line"><span id="question-count">Question 1 of 10</span><span><b id="answered-count">0</b> answered · <span id="remaining-count">10</span> remaining</span></div><div class="progress-track"><div id="progress-fill"></div></div>
+            <article class="question-card"><div class="question-meta"><span id="question-topic">GENESIS</span><span id="question-difficulty" class="difficulty">BEGINNER</span></div><h2 id="question-text"></h2><div class="answer-list" id="answer-list"></div><div class="feedback" id="feedback" aria-live="polite"></div><div class="quiz-controls"><button class="button button-outline" id="previous-question">← Previous</button><div><button class="button button-outline" id="save-later">Mark for review</button><button class="button button-dark" id="next-question">Next Question →</button></div></div></article>
+          </section><aside class="question-nav panel"><div class="nav-panel-heading"><h3>Question navigator</h3><span id="nav-progress">0/10</span></div><p>Choose a question to jump to it.</p><div id="question-grid" class="question-grid"></div><div class="nav-legend"><span><i class="legend-current"></i>Current</span><span><i class="legend-answered"></i>Answered</span><span><i class="legend-flagged"></i>Review</span></div><button class="button button-submit" id="submit-quiz">Submit quiz <span>→</span></button></aside></div>
+        </section>
+
+        <section class="page" id="page-results">
+          <div class="result-header"><span class="eyebrow dark-eyebrow">EXAMINATION COMPLETE</span><h1 id="result-heading">Well done!</h1><p id="result-description">Every step in the Word is a step worth taking.</p></div>
+          <div class="result-summary panel"><div class="score-ring" id="score-ring"><div><strong id="result-percent">0%</strong><span>YOUR SCORE</span></div></div><div class="result-summary-copy"><span class="tag" id="result-grade">KEEP GROWING</span><h2 id="result-title">A wonderful start</h2><p id="result-message">Review your answers and keep building your understanding of Scripture.</p><div class="result-actions"><button class="button button-gold" id="retake-quiz">↻ Retake quiz</button><button class="button button-outline" id="try-another">Try another category</button><button class="button button-outline" id="share-result">Share my result</button></div></div></div>
+          <div class="result-stats"><article class="result-stat"><span class="stat-icon purple">▤</span><div><strong id="result-total">0</strong><small>Total questions</small></div></article><article class="result-stat"><span class="stat-icon green">✓</span><div><strong id="result-correct">0</strong><small>Correct answers</small></div></article><article class="result-stat"><span class="stat-icon red">×</span><div><strong id="result-wrong">0</strong><small>Wrong answers</small></div></article><article class="result-stat"><span class="stat-icon gold">○</span><div><strong id="result-unanswered">0</strong><small>Unanswered</small></div></article><article class="result-stat"><span class="stat-icon blue">◷</span><div><strong id="result-time">00:00</strong><small>Time used</small></div></article></div>
+          <section class="panel performance-chart"><div class="panel-heading"><div><span class="eyebrow dark-eyebrow">YOUR PERFORMANCE</span><h2>Answer breakdown</h2></div></div><div class="chart-row"><span>Correct</span><div class="chart-track"><i id="chart-correct"></i></div><strong id="chart-correct-label">0</strong></div><div class="chart-row"><span>Incorrect</span><div class="chart-track wrong-track"><i id="chart-wrong"></i></div><strong id="chart-wrong-label">0</strong></div></section>
+          <section class="panel review-panel"><div class="panel-heading"><div><span class="eyebrow dark-eyebrow">LEARN FROM EVERY ANSWER</span><h2>Review your answers</h2></div><button class="text-button" id="review-toggle">Show all <span>↓</span></button></div><div id="review-list"></div></section>
+          <button class="button button-outline return-dashboard" data-page="dashboard">← Return to dashboard</button>
+        </section>
+
+        <section class="page generic-page" id="page-books"><span class="eyebrow dark-eyebrow">EXPLORE THE SCRIPTURES</span><h1>66 books. One great story.</h1><p>Choose a book to explore its questions and themes.</p><div id="book-groups" class="book-groups"></div></section>
+        <section class="page generic-page" id="page-categories"><span class="eyebrow dark-eyebrow">FIND YOUR NEXT CHALLENGE</span><h1>Quiz categories</h1><p>Explore Scripture from every angle, one question at a time.</p><div class="category-grid all-categories" id="all-categories"></div></section>
+        <section class="page generic-page" id="page-history"><span class="eyebrow dark-eyebrow">YOUR JOURNEY IN THE WORD</span><h1>My results</h1><p>Your quiz history, saved here as you learn.</p><div class="panel history-panel" id="history-list"></div></section>
+        <section class="page generic-page" id="page-leaderboard"><span class="eyebrow dark-eyebrow">LEARNING TOGETHER</span><h1>Leaderboard</h1><p>Celebrating learners who keep showing up.</p><div class="panel leaderboard-page-panel" id="leaderboard-list"></div></section>
+        <section class="page generic-page" id="page-admin"><span class="eyebrow dark-eyebrow">ADMINISTRATION</span><h1>Question bank</h1><p>Manage reviewed questions and import a CSV question bank.</p><div class="admin-layout"><form class="panel admin-form" id="admin-question-form"><input id="admin-question-id" type="hidden"><label>Question<textarea id="admin-question" required rows="3"></textarea></label><div class="admin-options"><label>Option A<input id="admin-option-a" required></label><label>Option B<input id="admin-option-b" required></label><label>Option C<input id="admin-option-c" required></label><label>Option D<input id="admin-option-d" required></label></div><label>Correct answer<select id="admin-correct" required><option value="">Choose an option</option><option>A</option><option>B</option><option>C</option><option>D</option></select></label><label>Explanation<textarea id="admin-explanation" rows="2"></textarea></label><div class="admin-options"><label>Scripture reference<input id="admin-reference" required></label><label>Bible book<select id="admin-book" required></select></label></div><div class="admin-options"><label>Category<select id="admin-category"></select></label><label>Difficulty<select id="admin-difficulty"><option>Beginner</option><option>Intermediate</option><option>Advanced</option><option>Expert</option></select></label></div><div class="admin-actions"><button class="button button-gold" type="submit" id="admin-save">Add question</button><button class="button button-outline" type="button" id="admin-cancel" hidden>Cancel edit</button></div></form><section class="panel admin-bank"><div class="panel-heading"><div><span class="eyebrow dark-eyebrow">CONTENT LIBRARY</span><h2>Question bank</h2></div><button class="button button-outline" id="refresh-questions">Refresh</button></div><div id="admin-question-list" class="admin-question-list"></div><details class="csv-import"><summary>Import questions from CSV</summary><p>Headers: question, option_a, option_b, option_c, option_d, correct_answer (A/B/C/D or exact option text), explanation, scripture_reference, bible_book, testament, category, difficulty</p><input type="file" id="csv-file" accept=".csv,text/csv"><button class="button button-dark" id="import-csv" type="button">Import CSV</button></details></section></div></section>
+        <section class="page generic-page" id="page-about"><span class="eyebrow dark-eyebrow">OUR HEART</span><h1>A little more rooted, every day.</h1><p>Wordwise is a welcoming place to explore the Bible, test what you know, and keep growing in the Word. Learn at your own pace, discover new passages, and celebrate every question that brings you closer to Scripture.</p><div class="about-verse">“Let the word of Christ dwell in you richly...”<small>COLOSSIANS 3:16</small></div></section>
+        <section class="page generic-page" id="page-settings"><span class="eyebrow dark-eyebrow">MAKE IT YOURS</span><h1>Settings</h1><p>Personalize your learning experience.</p><div class="panel settings-panel"><label>Display name<input id="settings-name" type="text" placeholder="Your name"></label><label>Daily reminder<select id="reminder"><option>Off</option><option>Morning</option><option>Evening</option></select></label><button class="button button-gold" id="save-settings">Save settings</button><p class="settings-note">Your quiz history stays on this device in demo mode. Sign in to sync it with your account.</p></div></section>
+      </div>
+    </main>
+  </div>
+
+  <div class="overlay" id="config-modal" role="dialog" aria-modal="true" aria-labelledby="config-title"><div class="modal config-dialog"><button class="modal-close" data-close aria-label="Close">×</button><span class="eyebrow dark-eyebrow">MAKE IT YOUR OWN</span><h2 id="config-title">Set up your quiz</h2><p>Choose how you’d like to explore today.</p><form id="config-form"><label>Quiz category<select id="config-category"><option value="All">All categories</option></select></label><label>Bible book<select id="config-book"><option value="All">All books</option></select></label><div class="form-row"><label>Difficulty<select id="config-difficulty"><option>Beginner</option><option>Intermediate</option><option>Advanced</option><option>Expert</option></select></label><label>Questions<select id="config-count"><option>10</option><option>20</option><option>30</option><option>50</option><option>100</option></select></label></div><div class="mode-note">◷ <span>Timed examination mode · Answers revealed after you submit</span></div><button class="button button-gold button-large modal-start" type="submit">Begin examination <span>→</span></button></form></div></div>
+
+  <div class="overlay" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title"><div class="modal auth-dialog"><button class="modal-close" data-close aria-label="Close">×</button><span class="eyebrow dark-eyebrow">WELCOME TO WORDWISE</span><h2 id="auth-title">Your learning journey</h2><p>Sign in to save your quiz history across devices.</p><form id="auth-form"><label>Full name<input id="auth-name" type="text" placeholder="Your name"></label><label>Email address<input id="auth-email" type="email" placeholder="you@example.com" required></label><label>Password<input id="auth-password" type="password" placeholder="At least 6 characters" minlength="6" required></label><button class="button button-gold button-large" id="auth-submit" type="submit">Sign in / Register <span>→</span></button></form><small class="auth-hint" id="auth-hint">Supabase sync is optional; demo mode works without an account.</small></div></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
